@@ -52,4 +52,7 @@ Contact = {
 };
 
 // Start the app
-Contact.init();
+$(function(){
+	Contact.init();
+})
+
