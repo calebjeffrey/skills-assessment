@@ -47,7 +47,7 @@ Contact = {
     			var item = $(this.CACHE.$contacts[i]);
     			item.find('.selected-info').html(item.data(filterType));
     		}
-    },
+    }
 }
 
 // Start the app
