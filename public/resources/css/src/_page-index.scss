@@ -11,8 +11,9 @@ $red:#ff0000;
 $yellow:#fffc00;
 
 .container{
-	margin:0 auto;
+	margin:20px auto 0;
 	width:280px;
+	
 	//background-color:#202020;
 	.top-cap{
 		@include twocorner(10px, top, right, top, left);
@@ -64,7 +65,7 @@ $yellow:#fffc00;
 			.dot{
 				$size:8px;
 				@include inline-block();
-				margin-left:15px;
+				margin-left:20px;
 				width:$size;
 				height:$size;
 				@include corner($size);
@@ -83,8 +84,8 @@ $yellow:#fffc00;
 				padding:12px 0;
 				color:#fff;
 				font-size:12px;
-				width:65px;
-				margin-left:14px;
+				width:70px;
+				margin-left:8px;
 				border-right:1px solid #131313;
 				@include inline-block();
 			}
@@ -100,25 +101,25 @@ $yellow:#fffc00;
 				z-index:2;
 				top:0;
 				right:0;
-				width:165px;
+				width:170px;
 				background-color:#484848;
 				overflow:hidden;
 				
 				.email{
 					display:block;
-					margin-left:15px;
-					margin-top:10px;
+					margin-left:20px;
+					margin-top:12px;
 					color:#00f6ff;
 					font-size:12px;
 				}
 				.phone{
-					margin-left:15px;
-					margin-top:10px;
+					margin-left:20px;
+					margin-top:12px;
 					font-size:12px;
 					color:#fff;
 				}
 				address{
-					margin:10px 0 15px 15px;
+					margin:13px 0 15px 20px;
 					font-size:12px;
 					color:#fff;
 					line-height:14px;
@@ -130,6 +131,7 @@ $yellow:#fffc00;
 		background-color:#202020;
 		width:100%;
 		@include twocorner(10px, bottom, right, bottom, left);
+		box-shadow: 0 4px 20px -6px #000;	
 		select{
 			margin:15px;
 		}
