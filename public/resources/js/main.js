@@ -1,32 +1,47 @@
 Contact = {
     CACHE:{
-    		$contact:$('.contact'),
     		$filter:$('#filter'),
-    		$contacts:$('#contacts')
+    		$contactList:$('#contacts'),
+    		$currentSelected:false
     },
     init: function() {
 		var self = this;
-		self.CACHE.$contact.on('click',function(){
-			self.onContactPress(this);
-		})
+		//SETUP EVENT LISTENERS
+		// Delegate clicks on contact <li>'s to the container
+		self.CACHE.$contactList.on( 'click', '.contact', function(){
+			self.onContactPress($(this));
+		});
 		self.CACHE.$filter.on('change',function(){
 			self.onSelectChange();
 		})
     },
-    onContactPress:function(button,self){
-    		$previouslySelected = this.CACHE.$contacts.find('.open'); 
-    		$previouslySelected.removeClass('open');
-    		this.CACHE.$contacts.removeClass('selected')
-    		//if the previously selected item is the item you are selecting, you have to shut it off and kick out
-    		if(button==$previouslySelected[0]){
+    	// Event hanlder for selecting a contact
+    onContactPress:function(button){
+    		var self = this;
+    		
+    		//if the button pressed is also selected, toggle everything off
+    		if(button[0] == self.CACHE.$currentSelected[0]){
+    			self.CACHE.$currentSelected = false;
+    			button.removeClass('open');
+    			this.CACHE.$contactList.removeClass('selected');
     			return;
     		}
-    		$(button).toggleClass('open');
-    		this.CACHE.$contacts.toggleClass('selected')
+    		//if there is a current selected item, shut it off
+    		if(self.CACHE.$currentSelected){
+    			self.CACHE.$currentSelected.removeClass('open')
+    		}
+    		//make the current item selected
+    		button.addClass('open');
+    		//make the contact list selected
+    		this.CACHE.$contactList.addClass('selected');
+    		//set the cache of the current selected item
+    		self.CACHE.$currentSelected = button;
     },
+    // Event handler for changing filter <select>
     onSelectChange:function(select){
     		self = this;
-    		filterType = self.CACHE.$filter.val()
+    		filterType = self.CACHE.$filter.val();
+    		// Loop through contacts and toggle phone/email
     		for( var i=this.CACHE.$contact.length-1; i > -1; i --){
     			var item = $(this.CACHE.$contact[i]);
     			item.find('.selected-info').html(item.data(filterType));
