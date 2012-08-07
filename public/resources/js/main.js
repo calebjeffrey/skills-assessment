@@ -48,8 +48,7 @@ Contact = {
     			item.find('.selected-info').html(item.data(filterType));
     		}
     },
-    
-};
+}
 
 // Start the app
 $(function(){
