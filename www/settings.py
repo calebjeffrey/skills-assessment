@@ -8,7 +8,7 @@ PROJ_ROOT = os.path.dirname(os.path.dirname(__file__))
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
-
+GRAPPELLI_ADMIN_TITLE = 'Red Admin'
 MANAGERS = ADMINS
 
 DATABASES = {
@@ -21,6 +21,14 @@ DATABASES = {
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
+
+ENV = 'local'
+if 'APP_ENV' in os.environ:
+    ENV = os.environ['APP_ENV']
+    
+if ENV == 'prod':
+    import dj_database_url
+    DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
 
 GRAPPELLI_ADMIN_TITLE = 'eSports'
 
