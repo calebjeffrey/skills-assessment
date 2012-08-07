@@ -5,9 +5,9 @@
 		<h1>Contacts</h1>
 	</header>
 	<ul id='contacts'>
-		
+		<!-- could have gotten away with using :nth-child(odd) but older brosers don't support, was easy enought o solve in django --> 
 		{% for contact in contacts %}
-		<li class='contact {% cycle 'odd' 'even' %} {% if forloop.last %}last{% endif %}' data-email='{{contact.email|truncatechars:24}}' data-phone='{{contact.phone}}'>
+		<li class='contact {% cycle 'odd' 'even' %}' data-email='{{contact.email|truncatechars:24}}' data-phone='{{contact.phone}}'>
 			<!-- i could have used a pseudo element here, but i didn't want to not support older browsers... -->
 			<span class="dot {{contact.color}}"></span>
 			<div class="name">

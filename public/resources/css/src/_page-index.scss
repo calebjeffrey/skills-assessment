@@ -37,16 +37,21 @@ $yellow:#fffc00;
 					}
 					opacity:1;
 					filter:alpha(opacity=100); /* For IE8 and earlier */
+					@include transition(opacity, 0);
 				}
 				opacity:0.4;
 				filter:alpha(opacity=40); /* For IE8 and earlier */
+				@include transition(opacity, .25s);
 			}
 		}
 		
 		li{
 			position:relative;
 			cursor: pointer;
-			border-top:1px solid $dark_outlight;
+			border-bottom:1px solid $dark_outlight;
+			&:first-child{
+				border-top:1px solid $dark_outlight;
+			}
 			&.odd{
 				&.open{
 					background-color:#484848;
@@ -59,9 +64,7 @@ $yellow:#fffc00;
 				}
 				background-color:$dark_grey;
 			}
-			&.last{
-				border-bottom:1px solid $dark_outlight;
-			}
+			//again, could have done in psuedo class, but wanted to support old browsers
 			.dot{
 				$size:8px;
 				@include inline-block();
@@ -96,12 +99,12 @@ $yellow:#fffc00;
 				font-size:12px;
 			}
 			.detail{
-				height:0;
 				position:absolute;
 				z-index:2;
 				top:0;
 				right:0;
 				width:170px;
+				height:0px;
 				background-color:#484848;
 				overflow:hidden;
 				
