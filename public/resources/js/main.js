@@ -2,6 +2,7 @@ Contact = {
     CACHE:{
     		$filter:$('#filter'),
     		$contactList:$('#contacts'),
+    		$contacts:$('.contact'),
     		$currentSelected:false
     },
     init: function() {
@@ -42,8 +43,8 @@ Contact = {
     		self = this;
     		filterType = self.CACHE.$filter.val();
     		// Loop through contacts and toggle phone/email
-    		for( var i=this.CACHE.$contact.length-1; i > -1; i --){
-    			var item = $(this.CACHE.$contact[i]);
+    		for( var i=this.CACHE.$contacts.length-1; i > -1; i --){
+    			var item = $(this.CACHE.$contacts[i]);
     			item.find('.selected-info').html(item.data(filterType));
     		}
     },
