@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]> <html class="no-js ie6 medium" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7 medium" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8 medium" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js medium" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Red Skills Assessment</title>
+		<link rel="stylesheet" href="{{RESOURCES_URL}}resources/css/styles.css" />
+		{% for file in css %}
+		<link rel="stylesheet" href="{{RESOURCES_URL}}{{file}}" />
+		{% endfor %}
+	</head>
+	<body>
+		{% block base %}
+		{% endblock %}
+		<script src="{{RESOURCES_URL}}resources/js/jquery-1.7.1.min.js"></script>
+		<script src="{{RESOURCES_URL}}resources/js/main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,142 @@
+$light_outlight:#494949;
+$dark_outlight:#131313;
+
+$light_grey:#212121;
+$dark_grey:#1a1a1a;
+
+$text_grey:#565656;
+
+$green:#00ff1e;
+$red:#ff0000;
+$yellow:#fffc00;
+
+.container{
+	margin:0 auto;
+	width:280px;
+	//background-color:#202020;
+	.top-cap{
+		@include twocorner(10px, top, right, top, left);
+		@include lineargradient(#3e3e3e, #252525);
+		border: 1px solid $light_outlight;
+		border-bottom:0;
+		h1{
+			padding:19px 15px;
+			font-weight: bold;
+			font-size: 14px;
+			color:#fff;
+		}
+	}
+	ul{
+		background-color:#000;
+		&.selected{
+			li{
+				&.open{
+					.detail{
+						height:auto;
+					}
+					opacity:1;
+					filter:alpha(opacity=100); /* For IE8 and earlier */
+				}
+				opacity:0.4;
+				filter:alpha(opacity=40); /* For IE8 and earlier */
+			}
+		}
+		
+		li{
+			position:relative;
+			cursor: pointer;
+			border-top:1px solid $dark_outlight;
+			&.odd{
+				&.open{
+					background-color:#484848;
+				}
+				background-color:$light_grey;
+			}
+			&.even{
+				&.open{
+					background-color:#484848;
+				}
+				background-color:$dark_grey;
+			}
+			&.last{
+				border-bottom:1px solid $dark_outlight;
+			}
+			.dot{
+				$size:8px;
+				@include inline-block();
+				margin-left:15px;
+				width:$size;
+				height:$size;
+				@include corner($size);
+				background:#fff;
+				&.red{
+					background-color:$red;
+				}
+				&.yellow{
+					background-color:$yellow;
+				}
+				&.green{
+					background-color:$green;
+				}
+			}
+			.name{
+				padding:12px 0;
+				color:#fff;
+				font-size:12px;
+				width:65px;
+				margin-left:14px;
+				border-right:1px solid #131313;
+				@include inline-block();
+			}
+			.selected-info{
+				color:$text_grey;
+				@include inline-block();
+				margin-left:14px;
+				font-size:12px;
+			}
+			.detail{
+				height:0;
+				position:absolute;
+				z-index:2;
+				top:0;
+				right:0;
+				width:165px;
+				background-color:#484848;
+				overflow:hidden;
+				
+				.email{
+					display:block;
+					margin-left:15px;
+					margin-top:10px;
+					color:#00f6ff;
+					font-size:12px;
+				}
+				.phone{
+					margin-left:15px;
+					margin-top:10px;
+					font-size:12px;
+					color:#fff;
+				}
+				address{
+					margin:10px 0 15px 15px;
+					font-size:12px;
+					color:#fff;
+					line-height:14px;
+				}
+			}
+		}
+	}
+	.bottom-cap{
+		background-color:#202020;
+		width:100%;
+		@include twocorner(10px, bottom, right, bottom, left);
+		select{
+			margin:15px;
+		}
+	}
+}
+
+h1,div, address,a{
+	font-family: Helvetica, Arial, sans-serif;
+}
+
