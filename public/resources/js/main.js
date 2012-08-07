@@ -40,7 +40,7 @@ Contact = {
     },
     // Event handler for changing filter <select>
     onSelectChange:function(select){
-    		self = this;
+    		var self = this;
     		filterType = self.CACHE.$filter.val();
     		// Loop through contacts and toggle phone/email
     		for( var i=this.CACHE.$contacts.length-1; i > -1; i --){
