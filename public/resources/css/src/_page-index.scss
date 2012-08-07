@@ -10,12 +10,12 @@ $green:#00ff1e;
 $red:#ff0000;
 $yellow:#fffc00;
 
-.container{
+#container{
 	margin:20px auto 0;
 	width:280px;
 	
 	//background-color:#202020;
-	.top-cap{
+	header{
 		@include twocorner(10px, top, right, top, left);
 		@include lineargradient(#3e3e3e, #252525);
 		border: 1px solid $light_outlight;
@@ -70,13 +70,13 @@ $yellow:#fffc00;
 				height:$size;
 				@include corner($size);
 				background:#fff;
-				&.red{
+				&.away{
 					background-color:$red;
 				}
-				&.yellow{
+				&.busy{
 					background-color:$yellow;
 				}
-				&.green{
+				&.avail{
 					background-color:$green;
 				}
 			}
@@ -127,11 +127,13 @@ $yellow:#fffc00;
 			}
 		}
 	}
-	.bottom-cap{
+	footer{
 		background-color:#202020;
 		width:100%;
 		@include twocorner(10px, bottom, right, bottom, left);
-		box-shadow: 0 4px 20px -6px #000;	
+		box-shadow: 0 4px 20px -6px #000;
+		@include inline-block();
+		text-align:right;	
 		select{
 			margin:15px;
 		}

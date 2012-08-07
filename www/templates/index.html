@@ -1,13 +1,14 @@
 {% extends 'layouts/base.html' %}
 {% block base %}
-<div class="container">
-	<div class="top-cap">
+<div id="container">
+	<header>
 		<h1>Contacts</h1>
-	</div>
+	</header>
 	<ul id='contacts'>
 		
 		{% for contact in contacts %}
 		<li class='contact {% cycle 'odd' 'even' %} {% if forloop.last %}last{% endif %}' data-email='{{contact.email|truncatechars:24}}' data-phone='{{contact.phone}}'>
+			<!-- i could have used a pseudo element here, but i didn't want to not support older browsers... -->
 			<span class="dot {{contact.color}}"></span>
 			<div class="name">
 				{{contact.name|truncatechars:10}}
@@ -15,7 +16,7 @@
 			{# could have used a pseudo element, but trying to be nice to older browsers... #}
 			<div class="selected-info">{{contact.email|truncatechars:24}}</div>
 			<div class="detail">
-				<a class='email' href="mailto:{{contact.email}}">{{contact.email}}</a>
+				<a class='email' target="_blank" href="mailto:{{contact.email}}">{{contact.email}}</a>
 				<div class="phone">
 					{{contact.phone}}
 				</div>
@@ -26,12 +27,12 @@
 		</li>
 		{% endfor %}
 	</ul>
-	<div class='bottom-cap clearfix'>
+	<footer>
 		{# value of selects must be the same as the data-[attribute] value #}
-		<select name="filter" id="filter" class='pull-right'>
+		<select name="filter" id="filter">
 			<option value="email">Email address</option>
 			<option value="phone">Phone number</option>
 		</select>
-	</div>
+	</footer>
 </div>
 {% endblock %}

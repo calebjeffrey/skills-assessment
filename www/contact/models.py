@@ -2,9 +2,9 @@ from django.db import models
 
 
 COLORS = (
-          ('red','red'),
-          ('green','green'),
-          ('yellow','yellow'),
+          ('away','Away'),
+          ('busy','Busy'),
+          ('avail','Available'),
           )
 
 class Contact(models.Model):
