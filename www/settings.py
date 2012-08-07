@@ -8,7 +8,7 @@ PROJ_ROOT = os.path.dirname(os.path.dirname(__file__))
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
-GRAPPELLI_ADMIN_TITLE = 'Red Admin'
+
 MANAGERS = ADMINS
 
 DATABASES = {
@@ -30,7 +30,7 @@ if ENV == 'prod':
     import dj_database_url
     DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
 
-GRAPPELLI_ADMIN_TITLE = 'eSports'
+GRAPPELLI_ADMIN_TITLE = 'Red Admin'
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
