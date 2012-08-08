@@ -11,10 +11,9 @@ $red:#ff0000;
 $yellow:#fffc00;
 
 #container{
-	margin:20px auto 0;
+	margin:20px auto;
 	width:280px;
 	
-	//background-color:#202020;
 	header{
 		@include twocorner(10px, top, right, top, left);
 		@include lineargradient(#3e3e3e, #252525);
