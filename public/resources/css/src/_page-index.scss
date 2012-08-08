@@ -36,6 +36,8 @@ $yellow:#fffc00;
 						height:auto;
 					}
 					opacity:1;
+					//had to put it here to deal with ie7 bug
+					position:relative;
 					filter:alpha(opacity=100); /* For IE8 and earlier */
 					@include transition(opacity, 0);
 				}
@@ -46,7 +48,6 @@ $yellow:#fffc00;
 		}
 		
 		li{
-			position:relative;
 			cursor: pointer;
 			border-bottom:1px solid $dark_outlight;
 			&:first-child{
@@ -65,7 +66,7 @@ $yellow:#fffc00;
 				background-color:$dark_grey;
 			}
 			//again, could have done in psuedo class, but wanted to support old browsers
-			.dot{
+			.status-indicator{
 				$size:8px;
 				@include inline-block();
 				margin-left:20px;
@@ -84,23 +85,24 @@ $yellow:#fffc00;
 				}
 			}
 			.name{
-				padding:12px 0;
 				color:#fff;
 				font-size:12px;
 				width:70px;
 				margin-left:8px;
 				border-right:1px solid #131313;
 				@include inline-block();
+				padding:12px 0;
 			}
 			.selected-info{
 				color:$text_grey;
 				@include inline-block();
 				margin-left:14px;
 				font-size:12px;
+				padding:12px 0;
 			}
 			.detail{
 				position:absolute;
-				z-index:2;
+				z-index:10;
 				top:0;
 				right:0;
 				width:170px;
@@ -142,6 +144,11 @@ $yellow:#fffc00;
 		}
 	}
 }
+
+.lt-ie8 .status-indicator{
+	margin-top:-24px;
+}
+
 
 h1,div, address,a{
 	font-family: Helvetica, Arial, sans-serif;

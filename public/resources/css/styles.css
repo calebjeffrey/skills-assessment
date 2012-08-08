@@ -140,6 +140,7 @@ html[xmlns] .clearfix {
       /* line 34, src/_page-index.scss */
       #container ul.selected li.open {
         opacity: 1;
+        position: relative;
         filter: alpha(opacity=100);
         /* For IE8 and earlier */
         -webkit-transition: opacity 0 ease-in-out;
@@ -149,28 +150,27 @@ html[xmlns] .clearfix {
         /* line 35, src/_page-index.scss */
         #container ul.selected li.open .detail {
           height: auto; }
-    /* line 48, src/_page-index.scss */
+    /* line 50, src/_page-index.scss */
     #container ul li {
-      position: relative;
       cursor: pointer;
       border-bottom: 1px solid #131313; }
-      /* line 52, src/_page-index.scss */
+      /* line 53, src/_page-index.scss */
       #container ul li:first-child {
         border-top: 1px solid #131313; }
-      /* line 55, src/_page-index.scss */
+      /* line 56, src/_page-index.scss */
       #container ul li.odd {
         background-color: #212121; }
-        /* line 56, src/_page-index.scss */
+        /* line 57, src/_page-index.scss */
         #container ul li.odd.open {
           background-color: #484848; }
-      /* line 61, src/_page-index.scss */
+      /* line 62, src/_page-index.scss */
       #container ul li.even {
         background-color: #1a1a1a; }
-        /* line 62, src/_page-index.scss */
+        /* line 63, src/_page-index.scss */
         #container ul li.even.open {
           background-color: #484848; }
-      /* line 68, src/_page-index.scss */
-      #container ul li .dot {
+      /* line 69, src/_page-index.scss */
+      #container ul li .status-indicator {
         display: inline-block;
         *display: inline;
         *zoom: 1;
@@ -184,18 +184,17 @@ html[xmlns] .clearfix {
         -khtml-border-radius: 8px;
         border-radius: 8px;
         background: #fff; }
-        /* line 76, src/_page-index.scss */
-        #container ul li .dot.away {
+        /* line 77, src/_page-index.scss */
+        #container ul li .status-indicator.away {
           background-color: red; }
-        /* line 79, src/_page-index.scss */
-        #container ul li .dot.busy {
+        /* line 80, src/_page-index.scss */
+        #container ul li .status-indicator.busy {
           background-color: #fffc00; }
-        /* line 82, src/_page-index.scss */
-        #container ul li .dot.avail {
+        /* line 83, src/_page-index.scss */
+        #container ul li .status-indicator.avail {
           background-color: #00ff1e; }
-      /* line 86, src/_page-index.scss */
+      /* line 87, src/_page-index.scss */
       #container ul li .name {
-        padding: 12px 0;
         color: #fff;
         font-size: 12px;
         width: 70px;
@@ -203,45 +202,47 @@ html[xmlns] .clearfix {
         border-right: 1px solid #131313;
         display: inline-block;
         *display: inline;
-        *zoom: 1; }
-      /* line 95, src/_page-index.scss */
+        *zoom: 1;
+        padding: 12px 0; }
+      /* line 96, src/_page-index.scss */
       #container ul li .selected-info {
         color: #565656;
         display: inline-block;
         *display: inline;
         *zoom: 1;
         margin-left: 14px;
-        font-size: 12px; }
-      /* line 101, src/_page-index.scss */
+        font-size: 12px;
+        padding: 12px 0; }
+      /* line 103, src/_page-index.scss */
       #container ul li .detail {
         position: absolute;
-        z-index: 2;
+        z-index: 10;
         top: 0;
         right: 0;
         width: 170px;
         height: 0px;
         background-color: #484848;
         overflow: hidden; }
-        /* line 111, src/_page-index.scss */
+        /* line 113, src/_page-index.scss */
         #container ul li .detail .email {
           display: block;
           margin-left: 20px;
           margin-top: 12px;
           color: #00f6ff;
           font-size: 12px; }
-        /* line 118, src/_page-index.scss */
+        /* line 120, src/_page-index.scss */
         #container ul li .detail .phone {
           margin-left: 20px;
           margin-top: 12px;
           font-size: 12px;
           color: #fff; }
-        /* line 124, src/_page-index.scss */
+        /* line 126, src/_page-index.scss */
         #container ul li .detail address {
           margin: 13px 0 15px 20px;
           font-size: 12px;
           color: #fff;
           line-height: 14px; }
-  /* line 133, src/_page-index.scss */
+  /* line 135, src/_page-index.scss */
   #container footer {
     background-color: #202020;
     width: 100%;
@@ -262,10 +263,14 @@ html[xmlns] .clearfix {
     *display: inline;
     *zoom: 1;
     text-align: right; }
-    /* line 140, src/_page-index.scss */
+    /* line 142, src/_page-index.scss */
     #container footer select {
       margin: 15px; }
 
-/* line 146, src/_page-index.scss */
+/* line 148, src/_page-index.scss */
+.lt-ie8 .status-indicator {
+  margin-top: -24px; }
+
+/* line 153, src/_page-index.scss */
 h1, div, address, a {
   font-family: Helvetica, Arial, sans-serif; }

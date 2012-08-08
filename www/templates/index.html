@@ -9,7 +9,7 @@
 		{% for contact in contacts %}
 		<li class='contact {% cycle 'odd' 'even' %}' data-email='{{contact.email|truncatechars:24}}' data-phone='{{contact.phone}}'>
 			<!-- i could have used a pseudo element here, but i didn't want to not support older browsers... -->
-			<span class="dot {{contact.color}}"></span>
+			<span class="status-indicator {{contact.color}}"></span>
 			<div class="name">
 				{{contact.name|truncatechars:10}}
 			</div>
